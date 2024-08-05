@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Analysis Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-bottom: 20px;
+        }
+        .result img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Analysis Results</h1>
+    {% for result in results %}
+    <div class="result">
+        <h2>{{ result.filename }}</h2>
+        <p>Loudness: {{ result.loudness }}</p>
+        <p>Noise Type: {{ result.noise_type }}</p>
+        <img src="data:image/png;base64,{{ result.plot_url }}" alt="Waveform">
+    </div>
+    {% endfor %}
+</body>
+</html>
